@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="col-6 border border-warning rounded p-4 mt-4">
+        <h1 class="text-center">LOGIN</h1>
+        <form action="#" method="post">
+            {% csrf_token %}
+                
+            <label for="">User Name</label>
+            <input type="text" class="form-control border-warning mb-2" name="uname">
+            <label for="">Password</label>
+            <input type="password" class="form-control border-warning mb-2" name="pass">
+            <input type="submit" class="btn btn-success mt-3" name="" value="Login"> 
+                                    
+        </form>
+    </div>
+</div>
+{% endblock content %}

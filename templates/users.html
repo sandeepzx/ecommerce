@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<h2 class="m-3 pt-1 text-center">ADMIN</h2>
+<div class="products p-4">
+    <div class="container-fluid bg-light p-5 ">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Contact Number</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            {% for c in cus %}
+            <tr>
+                <td>{{c.user.username}}</td>
+                <td>{{c.user.email}}</td>
+                <td>{{c.Address}}</td>
+                <td>{{c.Number}}</td>
+                <td><img src="{{c.Image.url}}" width="100px" alt="{{c.Name}}"></td>
+                <td><a href="{% url "delete" c.user.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}

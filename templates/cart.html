@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+{% block content %}
+<h2 class="m-3 pt-1 text-center">Cart</h2>
+<div class="products p-4">
+    <div class="container-fluid bg-light p-3">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+                <th>Action</th>
+            </tr>
+            {% for c in crt %}
+            <tr>
+                <td>{{c.prod.Pro_Name}}</td>
+                <td><img src="{{c.prod.Pro_Image.url}}" width="100px" alt="{{c.Name}}"></td>
+                <td>{{c.prod.Pro_Price}} &#8377</td>
+                <td><a class="btn btn-primary" href="{% url "decr" c.id %}">-</a> {{c.Quantity}} <a class="btn btn-primary" href="{% url "adds" c.id %}">+</a></td>
+                <td>{{c.total_price}} &#8377</td>
+                <td><a href="{% url "delete_cart" c.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="m-3 pt-1 text-center">Total {{total}} &#8377</h2>
+    </div>
+    <div class="d-flex justify-content-center p-3">
+        <a class="btn btn-success" href="{% url "checkout" %}">Buy</a>
+    </div>
+</div>
+{% endblock content %}

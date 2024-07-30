@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<h2 class="m-3 pt-1 text-center">ADMIN</h2>
+<div class="products p-4">
+    <div class="container-fluid bg-light p-5 ">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+            {% for p in pro %}
+            <tr>
+                <td>{{p.Pro_Name}}</td>
+                <td>{{p.Pro_Price}}</td>
+                <td>{{p.Pro_Desc}}</td>
+                <td><img src="{{p.Pro_Image.url}}" width="100px" alt="{{p.Pro_Name}}"></td>
+                <td>{{p.Pro_Cat.Cat_Name}}</td>
+                <td><a href="{% url "pdelete" p.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}

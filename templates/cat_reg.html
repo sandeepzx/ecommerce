@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<div class="container-fluid px-1 py-3 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class=" text-center">
+            <h3 class="pb-4">Category Register</h3>
+            {% for m in messages %}
+            <p class="text-danger">{{m}}</p>
+            {% endfor %}
+            <div class="card p-4">
+                <form class="form-card" action="" method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label px-3">Category name<span class="text-danger"> *</span></label> <input type="text" id="cname" name="cname" placeholder="Enter category name" onblur="validate(1)"> </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Add</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Check Out{% endblock title %}
+{% block content %}
+<div class="container-fluid px-1 py-3 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h1 class="text-center">Check Out</h1>
+            <div class="card p-4">
+                <form class="form-card" action="" method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Your name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contact Number<span class="text-danger"> *</span></label> <input type="text" id="number" name="number" placeholder="" onblur="validate(4)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> <textarea name="addr" id="addr" rows="2"></textarea> </div>
+
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        
+                            <div class="form-group col-sm-12 flex-column d-flex"> <label for="payment" class="form-control-label px-3">Payment<span class="text-danger"> *</span></label> 
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-10 d-flex justify-content-around">
+                                        <div class="col">
+                                            <input type="radio" name="payment" id="payment">
+                                            <label for="">UPI</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="radio" name="payment" id="payment">
+                                            <label for="">Net Banking</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="radio" name="payment" id="payment">
+                                            <label for="">Cash On Delivery</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="row justify-content-end">
+                        {% comment %} <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div> {% endcomment %}
+                    </div>
+                </form>
+                <button class="btn btn-warning" data-toggle="modal" data-target="#login">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Head -->
+            <div class="modal-header">
+                <h1 class="modal-title ">Classic Cart</h1>
+                <button class="close btn btn-danger" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body text-center">
+                <p>Your Oreder was successfully Placed</p>
+                <p>Thank you for shopping with us</p>
+            </div>
+
+            <!-- Modal Foot -->
+            <div class="modal-footer">
+                <button class="btn btn-outline-danger" data-dismiss="modal">close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
